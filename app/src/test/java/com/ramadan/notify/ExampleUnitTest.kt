@@ -1,4 +1,4 @@
-package com.ramadan.notify
+package ramadan.notify
 
 import org.junit.Test
 

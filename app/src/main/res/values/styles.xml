@@ -1,0 +1,22 @@
+<resources>
+
+    <style name="Theme.Notify" parent="android:Theme.Material.Light.NoActionBar" />
+
+    <!--    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight">-->
+
+    <!--        &lt;!&ndash;        <item name="android:statusBarColor">@android:color/transparent</item>&ndash;&gt;-->
+    <!--        &lt;!&ndash;        <item name="android:windowTranslucentStatus">true</item>&ndash;&gt;-->
+    <!--        &lt;!&ndash;        <item name="windowActionBar">false</item>&ndash;&gt;-->
+    <!--        &lt;!&ndash;        <item name="windowNoTitle">true</item>&ndash;&gt;-->
+    <!--        &lt;!&ndash;        <item name="android:overScrollMode">never</item>&ndash;&gt;-->
+    <!--        &lt;!&ndash;        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>&ndash;&gt;-->
+
+    <!--    </style>-->
+
+    <!--    <style name="AppTheme_NoActionBar" parent="AppTheme">-->
+    <!--        <item name="windowActionBar">false</item>-->
+    <!--        <item name="windowNoTitle">true</item>-->
+    <!--        <item name="android:windowActionBar">false</item>-->
+    <!--    </style>-->
+
+</resources>

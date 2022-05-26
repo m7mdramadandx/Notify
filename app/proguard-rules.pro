@@ -15,7 +15,10 @@
 # Uncomment this to preserve the line number information for
 # debugging stack traces.
 #-keepattributes SourceFile,LineNumberTable
-
+-keepattributes SourceFile,LineNumberTable
 # If you keep the line number information, uncomment this to
-# hide the original source file name.
-#-renamesourcefileattribute SourceFile
+-keepattributes LineNumberTable,SourceFile
+-keepclassmembers class com.ramadan.notify.data.model** { *; }
+-keep class com.google.android.material** { *; }
+-keep class androidx** { *; }
+-keep interface androidx** { *; }
