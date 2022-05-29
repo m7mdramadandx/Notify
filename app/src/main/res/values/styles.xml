@@ -1,6 +1,6 @@
 <resources>
 
-    <style name="Theme.Notify" parent="android:Theme.Material.Light.NoActionBar" />
+    <!--    <style name="Theme.Notify" parent="android:Theme.Material.Light.NoActionBar" />-->
 
     <!--    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight">-->
 

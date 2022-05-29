@@ -3,7 +3,7 @@ package com.ramadan.notify.domain.model
 import androidx.compose.ui.graphics.toArgb
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.ramadan.notify.utils.theme.MyColor
+import com.ramadan.notify.ui.theme.MyColor
 
 @Entity
 data class Note(

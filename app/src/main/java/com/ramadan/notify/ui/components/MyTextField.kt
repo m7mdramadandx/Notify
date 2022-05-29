@@ -18,7 +18,7 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.KeyboardType
 import com.ramadan.notify.R
-import com.ramadan.notify.utils.theme.NotifyTheme
+import com.ramadan.notify.ui.theme.NotifyTheme
 
 @Composable
 fun MyTextField(
@@ -26,7 +26,7 @@ fun MyTextField(
     isEnable: Boolean = true,
     value: String,
     label: String,
-    textStyle: TextStyle = NotifyTheme.typography.body1,
+    textStyle: TextStyle = NotifyTheme.typography.bodyMedium,
     background: Color = NotifyTheme.colors.textFieldBg,
     keyboardType: KeyboardType = KeyboardType.Text,
     keyboardActions: (KeyboardActionScope) -> Unit = {},

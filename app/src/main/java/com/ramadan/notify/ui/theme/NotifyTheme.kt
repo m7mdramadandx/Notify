@@ -1,11 +1,11 @@
-package com.ramadan.notify.utils.theme
+package com.ramadan.notify.ui.theme
 
-import androidx.compose.material.Shapes
-import androidx.compose.material.Typography
+import androidx.compose.material3.Shapes
+import androidx.compose.material3.Typography
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.ReadOnlyComposable
-import com.ramadan.notify.utils.theme.NotifyShape.LocalShapes
-import com.ramadan.notify.utils.theme.NotifyTypography.LocalTypography
+import com.ramadan.notify.ui.theme.NotifyShape.LocalShapes
+import com.ramadan.notify.ui.theme.NotifyTypography.LocalTypography
 
 object NotifyTheme {
 

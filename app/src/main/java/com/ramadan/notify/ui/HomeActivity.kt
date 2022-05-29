@@ -10,16 +10,19 @@ import androidx.compose.animation.*
 import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.TweenSpec
 import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.colorspace.ColorSpaces
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -45,9 +48,9 @@ import com.ramadan.notify.utils.Constant
 import com.ramadan.notify.utils.InAppUpdate
 import com.ramadan.notify.utils.Screen
 import com.ramadan.notify.utils.UiText
-import com.ramadan.notify.utils.theme.AppTheme
-import com.ramadan.notify.utils.theme.NotifyShape
-import com.ramadan.notify.utils.theme.NotifyTheme
+import com.ramadan.notify.ui.theme.AppTheme
+import com.ramadan.notify.ui.theme.NotifyShape
+import com.ramadan.notify.ui.theme.NotifyTheme
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -270,11 +273,11 @@ class HomeActivity : ComponentActivity() {
 
     @Composable
     fun AnimatableIcon(
-        imageVector: ImageVector,
+        imageVector: Int,
         modifier: Modifier = Modifier,
         iconSize: Dp = 24.dp,
         scale: Float = 1f,
-        color: androidx.compose.ui.graphics.Color = NotifyTheme.colors.icon,
+        color: Color = NotifyTheme.colors.icon,
         onClick: () -> Unit,
     ) {
         // Animation params
@@ -298,10 +301,10 @@ class HomeActivity : ComponentActivity() {
             onClick = onClick,
             modifier = modifier.size(iconSize)
         ) {
-            Icon(
-                imageVector = imageVector,
+            Image(
+                painter = painterResource(id = imageVector),
                 contentDescription = "",
-                tint = animatedColor.convert(ColorSpaces.Oklab),
+                colorFilter = ColorFilter.tint(animatedColor),
                 modifier = modifier.scale(animatedScale)
             )
         }

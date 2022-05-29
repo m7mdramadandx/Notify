@@ -7,13 +7,13 @@ buildscript {
     }
 
     dependencies {
-        classpath(BuildPlugins.androidGradle)
-        classpath(BuildPlugins.kotlinGradle)
-        classpath(BuildPlugins.navigation)
-        classpath(BuildPlugins.daggerHilt)
-        classpath(BuildPlugins.googleServices)
-        classpath(BuildPlugins.fbCrashlytics)
-        classpath(BuildPlugins.fbPerformance)
+        classpath(Build.androidGradle)
+        classpath(Build.kotlinGradle)
+        classpath(Build.navigation)
+        classpath(Build.daggerHilt)
+        classpath(Build.googleServices)
+        classpath(Build.fbCrashlytics)
+        classpath(Build.fbPerformance)
     }
 }
 

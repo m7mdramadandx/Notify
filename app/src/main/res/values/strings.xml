@@ -20,4 +20,10 @@
     <string name="confirm">Confirm</string>
     <string name="undo">Undo</string>
 
+    // Order
+    <string name="title">Title</string>
+    <string name="date">Date</string>
+    <string name="ascending">Ascending</string>
+    <string name="descending">Descending</string>
+
 </resources>

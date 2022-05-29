@@ -5,14 +5,14 @@ import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.AnimationVector4D
 import androidx.compose.animation.core.tween
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.Save
+//import androidx.compose.material.icons.rounded.Save
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
@@ -36,7 +36,7 @@ import com.ramadan.notify.ui.components.MyTextField
 import com.ramadan.notify.ui.components.NotifyAppBar
 import com.ramadan.notify.ui.components.NotifyScaffold
 import com.ramadan.notify.utils.UiText
-import com.ramadan.notify.utils.theme.NotifyTheme
+import com.ramadan.notify.ui.theme.NotifyTheme
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -101,7 +101,7 @@ fun AddEditNoteScreen(
                 backgroundColor = NotifyTheme.colors.popUp
             ) {
                 Icon(
-                    imageVector = Icons.Rounded.Save,
+                    painter = painterResource(id = R.drawable.ic_save),
                     contentDescription = "",
                     tint = NotifyTheme.colors.icon
                 )
@@ -136,7 +136,7 @@ fun AddEditNoteScreen(
                 },
                 singleLine = true,
                 keyboardActions = { focusManager.moveFocus(FocusDirection.Next) },
-                textStyle = NotifyTheme.typography.subtitle1
+                textStyle = NotifyTheme.typography.titleMedium
             )
 
             // note content

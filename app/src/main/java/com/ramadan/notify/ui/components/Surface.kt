@@ -17,7 +17,7 @@ import androidx.compose.ui.graphics.compositeOver
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
-import com.ramadan.notify.utils.theme.NotifyTheme
+import com.ramadan.notify.ui.theme.NotifyTheme
 import kotlin.math.ln
 
 

@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.ramadan.notify.domain.model.InvalidNoteException
 import com.ramadan.notify.domain.model.ToDo
 import com.ramadan.notify.domain.use_case.todo.ToDoUseCases
+import com.ramadan.notify.domain.util.NoteOrder
 import com.ramadan.notify.domain.util.OrderType
 import com.ramadan.notify.domain.util.ToDoOrder
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -31,23 +32,23 @@ class ToDosViewModel @Inject constructor(
     private var getToDosJob: Job? = null
 
     init {
-        getToDos(ToDoOrder.Date(OrderType.Descending))
+        getToDos(NoteOrder.Date(OrderType.Descending))
     }
 
     fun onEvent(event: ToDosEvent) {
         when (event) {
             is ToDosEvent.Order -> {
-                if (_toDoState.value.toDoOrder::class == event.ToDoOrder::class &&
-                    _toDoState.value.toDoOrder.orderType == event.ToDoOrder.orderType
+                if (_toDoState.value.noteOrder::class == event.noteOrder::class &&
+                    _toDoState.value.noteOrder.orderType == event.noteOrder.orderType
                 ) {
                     return
                 }
-                getToDos(event.ToDoOrder)
+                getToDos(event.noteOrder)
             }
             is ToDosEvent.DeleteToDo -> {
                 viewModelScope.launch {
-                    toDoUseCases.deleteToDo(event.ToDo)
-                    recentlyDeletedToDo = event.ToDo
+                    toDoUseCases.deleteToDo(event.todo)
+                    recentlyDeletedToDo = event.todo
                 }
             }
             is ToDosEvent.RestoreToDo -> {
@@ -65,8 +66,8 @@ class ToDosViewModel @Inject constructor(
             is ToDosEvent.MarkToDo -> {
                 viewModelScope.launch {
                     try {
-                        toDoUseCases.markToDo(event.ToDo.copy(isDone = true))
-                        getToDos(ToDoOrder.Date(OrderType.Descending))
+                        toDoUseCases.markToDo(event.todo.copy(isDone = true))
+                        getToDos(NoteOrder.Date(OrderType.Descending))
                     } catch (e: InvalidNoteException) {
                     }
                 }
@@ -88,13 +89,13 @@ class ToDosViewModel @Inject constructor(
         }
     }
 
-    private fun getToDos(ToDoOrder: ToDoOrder) {
+    private fun getToDos(noteOrder: NoteOrder) {
         getToDosJob?.cancel()
-        getToDosJob = toDoUseCases.getToDos(ToDoOrder)
+        getToDosJob = toDoUseCases.getToDos(noteOrder)
             .onEach { toDos ->
                 _toDoState.value = _toDoState.value.copy(
                     ToDos = toDos,
-                    toDoOrder = ToDoOrder
+                    noteOrder = noteOrder
                 )
             }
             .launchIn(viewModelScope)

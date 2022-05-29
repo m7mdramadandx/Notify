@@ -25,8 +25,8 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.ramadan.notify.utils.theme.AppTheme
-import com.ramadan.notify.utils.theme.NotifyTheme
+import com.ramadan.notify.ui.theme.AppTheme
+import com.ramadan.notify.ui.theme.NotifyTheme
 
 @Composable
 

@@ -43,7 +43,7 @@ object Libs {
     const val kaptRoom = "androidx.room:room-compiler:${Versions.ROOM}"
     const val roomKtx = "androidx.room:room-ktx:${Versions.ROOM}"
 
-    //    const val navigationUi = "androidx.navigation:navigation-ui-ktx:2.4.2"
+//    const val navigationUi = "androidx.navigation:navigation-ui-ktx:2.4.2"
 //    const val navigationUi = "androidx.navigation:navigation-ui-ktx:2.4.2"
     const val navigationCompose = "androidx.navigation:navigation-compose:2.4.2"
     const val hiltNavigationCompose = "androidx.hilt:hilt-navigation-compose:1.0.0"
@@ -69,7 +69,8 @@ object Libs {
     const val accompanistSystemUiController =
         "com.google.accompanist:accompanist-systemuicontroller:0.17.0"
     const val accompanistCoil = "com.google.accompanist:accompanist-coil:0.7.0"
-    const val accompanistAppcompatTheme = "com.google.accompanist:accompanist-appcompat-theme:0.16.0"
+    const val accompanistAppcompatTheme =
+        "com.google.accompanist:accompanist-appcompat-theme:0.16.0"
     const val accompanistInsets = "com.google.accompanist:accompanist-insets:0.19.0"
     const val accompanistInsetsUI = "com.google.accompanist:accompanist-insets-ui:0.19.0"
     const val accompanistPermissions = "com.google.accompanist:accompanist-permissions:0.24.6-alpha"

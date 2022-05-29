@@ -11,7 +11,7 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
-import androidx.compose.material.icons.filled.Remove
+import androidx.compose.material.icons.filled.Delete
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Alignment
@@ -25,8 +25,8 @@ import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ramadan.notify.R
-import com.ramadan.notify.utils.theme.AppTheme
-import com.ramadan.notify.utils.theme.NotifyTheme
+import com.ramadan.notify.ui.theme.AppTheme
+import com.ramadan.notify.ui.theme.NotifyTheme
 
 @Composable
 fun QuantitySelector(
@@ -47,7 +47,7 @@ fun QuantitySelector(
             )
         }
         JetsnackGradientTintedIconButton(
-            imageVector = Icons.Default.Remove,
+            imageVector = Icons.Default.Delete,
             onClick = decreaseItemCount,
             contentDescription = "",
             modifier = Modifier.align(Alignment.CenterVertically)

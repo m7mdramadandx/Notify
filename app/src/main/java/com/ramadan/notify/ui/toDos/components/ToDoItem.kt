@@ -18,7 +18,7 @@ import androidx.compose.ui.unit.dp
 import com.ramadan.notify.R
 import com.ramadan.notify.domain.model.ToDo
 import com.ramadan.notify.ui.components.NotifyCard
-import com.ramadan.notify.utils.theme.NotifyTheme
+import com.ramadan.notify.ui.theme.NotifyTheme
 
 
 @Composable
@@ -39,7 +39,8 @@ fun ToDoItem(
         Row(
             modifier = Modifier.padding(
                 horizontal = dimensionResource(id = R.dimen.padding_medium),
-                vertical = 4.dp),
+                vertical = dimensionResource(id = R.dimen.padding_xxsmall)
+            ),
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
@@ -83,16 +84,20 @@ fun ToDoItem(
 @Preview("dark theme", "rectangle", uiMode = UI_MODE_NIGHT_YES)
 fun ToDoPreview() {
     NotifyCard(
-        modifier = Modifier.padding(start = dimensionResource(id = R.dimen.padding_xxsmall),
+        modifier = Modifier.padding(
+            start = dimensionResource(id = R.dimen.padding_xxsmall),
             end = dimensionResource(id = R.dimen.padding_xxsmall),
             top = dimensionResource(id = R.dimen.padding_xxsmall),
-            bottom = dimensionResource(id = R.dimen.padding_medium)),
+            bottom = dimensionResource(id = R.dimen.padding_medium)
+        ),
         shape = MaterialTheme.shapes.medium,
         elevation = dimensionResource(id = R.dimen.padding_xxsmall)
     ) {
         Row(
-            modifier = Modifier.padding(horizontal = dimensionResource(id = R.dimen.padding_medium),
-                vertical = 4.dp),
+            modifier = Modifier.padding(
+                horizontal = dimensionResource(id = R.dimen.padding_medium),
+                vertical = 4.dp
+            ),
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(

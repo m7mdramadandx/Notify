@@ -1,35 +1,39 @@
-package com.ramadan.notify.utils.theme
+package com.ramadan.notify.ui.theme
 
-import androidx.compose.material.Typography
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
-import com.ramadan.notify.R
 
 // Set of Material typography styles to start with
 object NotifyTypography {
-    val typography = Typography(
-        defaultFontFamily = FontFamily(
-            Font(R.font.comfortaa),
-            Font(R.font.comfortaa, FontWeight.Bold)
+    val typography = androidx.compose.material3.Typography(
+//
+//        defaultFontFamily = FontFamily(
+//            Font(R.font.comfortaa),
+//            Font(R.font.comfortaa, FontWeight.Bold)
+//        ),
+        bodySmall = TextStyle(
+            fontFamily = FontFamily.Default,
+            fontWeight = FontWeight.Normal,
+            fontSize = 12.sp
         ),
-        body1 = TextStyle(
+        bodyMedium = TextStyle(
             fontFamily = FontFamily.Default,
             fontWeight = FontWeight.Normal,
             fontSize = 16.sp
         ),
-        button = TextStyle(
-            fontFamily = FontFamily.Default,
-            fontWeight = FontWeight.W500,
-            fontSize = 14.sp
-        ),
-        caption = TextStyle(
+        bodyLarge = TextStyle(
             fontFamily = FontFamily.Default,
             fontWeight = FontWeight.Normal,
-            fontSize = 12.sp
+            fontSize = 18.sp
+        ),
+
+        titleLarge = TextStyle(
+            fontFamily = FontFamily.Default,
+            fontWeight = FontWeight.SemiBold,
+            fontSize = 19.sp
         )
     )
 

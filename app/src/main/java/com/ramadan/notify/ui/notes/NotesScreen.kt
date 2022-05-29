@@ -13,7 +13,7 @@ import androidx.compose.material.IconButton
 import androidx.compose.material.ScaffoldState
 import androidx.compose.material.SnackbarResult
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.Sort
+import androidx.compose.material.icons.rounded.Refresh
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
@@ -30,10 +30,10 @@ import com.ramadan.notify.R
 import com.ramadan.notify.domain.model.Note
 import com.ramadan.notify.ui.notes.components.NoteItem
 import com.ramadan.notify.ui.notes.components.NoteItemLayout
-import com.ramadan.notify.ui.notes.components.OrderSection
+import com.ramadan.notify.ui.components.OrderSection
 import com.ramadan.notify.utils.Screen
 import com.ramadan.notify.utils.StaggeredVerticalGrid
-import com.ramadan.notify.utils.theme.NotifyTheme
+import com.ramadan.notify.ui.theme.NotifyTheme
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
@@ -53,7 +53,7 @@ fun NotesScreen(
             onClick = { viewModel.onEvent(NotesEvent.ToggleOrderSection) },
             content = {
                 Icon(
-                    imageVector = Icons.Rounded.Sort,
+                    painter = painterResource(id = R.drawable.ic_sort),
                     contentDescription = "",
                     tint = NotifyTheme.colors.icon,
                 )
@@ -141,11 +141,13 @@ private fun onDeleteNote(
 @Composable
 fun StaggeredVerticalGridPreview() {
 
-    val list = mutableListOf(Note.defaultNote,
+    val list = mutableListOf(
+        Note.defaultNote,
         Note.defaultNote,
         Note.defaultNote2,
         Note.defaultNote,
-        Note.defaultNote)
+        Note.defaultNote
+    )
 
     LazyColumn {
         item {

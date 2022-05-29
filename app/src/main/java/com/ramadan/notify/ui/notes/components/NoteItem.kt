@@ -12,7 +12,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextOverflow
 import com.ramadan.notify.R
 import com.ramadan.notify.domain.model.Note
-import com.ramadan.notify.utils.theme.NotifyTheme
+import com.ramadan.notify.ui.theme.NotifyTheme
 
 @Composable
 fun NoteItem(
@@ -39,7 +39,7 @@ fun NoteItem(
             Text(
                 modifier = Modifier.padding(end = dimensionResource(id = R.dimen.padding_xxxlarge)),
                 text = note.title,
-                style = NotifyTheme.typography.subtitle1,
+                style = NotifyTheme.typography.titleMedium,
                 color = NotifyTheme.colors.textPrimary,
                 overflow = TextOverflow.Ellipsis,
                 maxLines = 1,
@@ -48,7 +48,7 @@ fun NoteItem(
             Text(
                 modifier = Modifier.fillMaxSize(),
                 text = note.content,
-                style = NotifyTheme.typography.body1,
+                style = NotifyTheme.typography.bodyMedium,
                 color = NotifyTheme.colors.textPrimary,
                 overflow = TextOverflow.Ellipsis
             )

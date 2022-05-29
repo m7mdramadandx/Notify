@@ -12,7 +12,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Sort
+import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
@@ -27,10 +27,10 @@ import com.ramadan.notify.Application
 import com.ramadan.notify.R
 import com.ramadan.notify.domain.model.ToDo
 import com.ramadan.notify.ui.components.NotifyCard
-import com.ramadan.notify.ui.toDos.components.OrderSection
+import com.ramadan.notify.ui.components.OrderSection
 import com.ramadan.notify.ui.toDos.components.ToDoItem
 import com.ramadan.notify.utils.UiText
-import com.ramadan.notify.utils.theme.NotifyTheme
+import com.ramadan.notify.ui.theme.NotifyTheme
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
@@ -56,7 +56,7 @@ fun ToDosScreen(
             onClick = { viewModel.onEvent(ToDosEvent.ToggleOrderSection) },
             content = {
                 Icon(
-                    imageVector = Icons.Default.Sort,
+                    painter = painterResource(id = R.drawable.ic_sort),
                     contentDescription = "",
                     tint = NotifyTheme.colors.icon,
                 )
@@ -69,7 +69,7 @@ fun ToDosScreen(
             exit = shrinkHorizontally(),
             content = {
                 OrderSection(
-                    toDoOrder = toDosState.toDoOrder,
+                    noteOrder = toDosState.noteOrder,
                     onOrderChange = { viewModel.onEvent(ToDosEvent.Order(it)) }
                 )
             }
@@ -107,8 +107,10 @@ fun ToDosScreen(
                 toDosState.ToDos.forEachIndexed { index, toDo ->
 
                     ToDoItem(
-                        modifier = Modifier.padding(bottom = if (index == toDosState.ToDos.lastIndex)
-                            dimensionResource(id = R.dimen.padding_xlarge) else 0.dp),
+                        modifier = Modifier.padding(
+                            bottom = if (index == toDosState.ToDos.lastIndex)
+                                dimensionResource(id = R.dimen.padding_xlarge) else 0.dp
+                        ),
                         toDo = toDo,
                         onMarkClick = { viewModel.onEvent(ToDosEvent.MarkToDo(toDo)) },
                         onDeleteClick = { onDeleteTodo(viewModel, scope, scaffoldState, toDo) },

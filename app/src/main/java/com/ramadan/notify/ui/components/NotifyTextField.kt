@@ -9,8 +9,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.sp
-import com.ramadan.notify.utils.theme.NotifyShape
-import com.ramadan.notify.utils.theme.NotifyTheme
+import com.ramadan.notify.ui.theme.NotifyShape
+import com.ramadan.notify.ui.theme.NotifyTheme
 
 @Composable
 fun NotifyTextField(

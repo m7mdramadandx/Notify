@@ -18,11 +18,11 @@ android {
         getByName("debug") {
             storeFile = file("D:\\android projects\\Notify\\app\\keyStore.jks")
             storePassword = "notify_password"
-            keyAlias = "notify"
+            keyAlias = "key0"
             keyPassword = "notify_password"
         }
 
-        //        create("signingConfigRelease") {
+//        create("signingConfigRelease") {
 //            storeFile = file(KeyHelper.getValue(KeyHelper.KEY_STORE_FILE))
 //            storePassword = KeyHelper.getValue(KeyHelper.KEY_STORE_PASS)
 //            keyAlias = KeyHelper.getValue(KeyHelper.KEY_ALIAS)
@@ -53,16 +53,26 @@ android {
 //        }
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables { useSupportLibrary = true }
+        signingConfig = signingConfigs.getByName("debug")
+        manifestPlaceholders += mapOf(
+            "false" to "enableAnalytics",
+            "false" to "enableCrashlytics",
+            "false" to "enablePerformance"
+        )
     }
 
     buildTypes {
         getByName("release") {
+            manifestPlaceholders += mapOf(
+                "true" to "enableAnalytics",
+                "true" to "enableCrashlytics",
+                "true" to "enablePerformance"
+            )
             isMinifyEnabled = true
+            multiDexEnabled = true
             proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
-//            extra["enableCrashlytics,enableAnalytics,enablePerformance"] = true
         }
         getByName("debug") {
-            applicationIdSuffix = ".debug"
             versionNameSuffix = "-dev"
             isDebuggable = true
         }
@@ -86,7 +96,7 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
-//
+
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_11.toString()
 //        useIR = true
@@ -143,30 +153,30 @@ dependencies {
     kaptAndroidTest("com.google.dagger:hilt-android-compiler:2.42")
 
 
-//    //  LiveData
+    //  LiveData
 //    def lifecycle_version = "2.4.1"
 //    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
 
-//    // ViewModel
+    // ViewModel
 //    implementation "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03"
 
     // Coroutines
     implementation(Libs.coroutinesCore)
     implementation(Libs.coroutinesAndroid)
 
-//    //  Dagger - Hilt
+    //  Dagger - Hilt
     implementation(Libs.hiltAndroid)
     kapt(Libs.hiltAndroidCompiler)
     implementation(Libs.hiltNavigationCompose)
 //    kapt "androidx.hilt:hilt-compiler:1.0.0"
 
-//    //Play Services
+    //Play Services
 //    implementation "com.google.android.gms:play-services-base:18.0.1"
 //    implementation "com.google.android.gms:play-services-ads:20.6.0"
-//
-//    // Play Core
+
+    // Play Core
     implementation(Libs.playCoreKtx)
-//
+
     // RoomDB
     implementation(Libs.roomRunTime)
     kapt(Libs.kaptRoom)
@@ -189,22 +199,20 @@ dependencies {
     implementation(Libs.composeTooling)
     debugImplementation(Libs.composeTooling)
     implementation(Libs.composeToolingPreview)
-//
+
 //    // Foundation (Border, Background, Box, Image, Scroll, shapes, animations, etc.)
     implementation(Libs.composeFoundation)
-//
+
 //    // Material Design
     implementation(Libs.composeMaterial3)
     implementation(Libs.composeMaterial3WindowSize)
-    implementation(Libs.composeMaterialIconsCore)
-    implementation(Libs.composeMaterialIconsExtended)
 
     // Integration with observables
     implementation(Libs.composeRuntimeLiveData)
 
-//    // When using a MDC theme
+    // When using a MDC theme
 //    implementation "com.google.android.material:compose-theme-adapter:1.1.10"
-//
+
 //    // Navigation
     implementation(Libs.navigationCompose)
     implementation(Libs.hiltNavigationCompose)

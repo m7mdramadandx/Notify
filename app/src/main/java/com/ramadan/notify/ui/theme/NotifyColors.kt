@@ -1,4 +1,4 @@
-package com.ramadan.notify.utils.theme
+package com.ramadan.notify.ui.theme
 
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.getValue

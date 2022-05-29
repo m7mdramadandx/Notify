@@ -1,8 +1,10 @@
-package com.ramadan.notify.utils.theme
+package com.ramadan.notify.ui.theme
 
 import android.annotation.SuppressLint
 import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
+import androidx.compose.material3.darkColorScheme
+import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
 
@@ -133,11 +135,11 @@ object MyColor {
 
     // Native MaterialTheme Colors
     @SuppressLint("ConflictingOnColor")
-    val LightColorPalette = lightColors(
+    val LightColorPalette = lightColorScheme(
         primary = appBar,
-        primaryVariant = button,
+//        primaryVariant = button,
         secondary = button,
-        secondaryVariant = background,
+//        secondaryVariant = background,
         error = error,
         background = background,
         surface = appBar,
@@ -150,11 +152,11 @@ object MyColor {
     )
 
     @SuppressLint("ConflictingOnColor")
-    val DarkColorPalette = darkColors(
+    val DarkColorPalette = darkColorScheme(
         primary = appBarDark,
-        primaryVariant = buttonDark,
+//        primaryVariant = buttonDark,
         secondary = buttonDark,
-        secondaryVariant = buttonDark,
+//        secondaryVariant = buttonDark,
         error = error,
         background = backgroundDark,
         surface = backgroundDark,

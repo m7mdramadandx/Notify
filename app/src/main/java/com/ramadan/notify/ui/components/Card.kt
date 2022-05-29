@@ -13,8 +13,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.ramadan.notify.R
-import com.ramadan.notify.utils.theme.NotifyShape
-import com.ramadan.notify.utils.theme.NotifyTheme
+import com.ramadan.notify.ui.theme.NotifyShape
+import com.ramadan.notify.ui.theme.NotifyTheme
 
 @Composable
 fun NotifyCard(
