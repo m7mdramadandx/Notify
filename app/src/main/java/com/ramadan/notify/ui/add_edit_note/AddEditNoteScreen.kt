@@ -25,9 +25,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.res.integerResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.ramadan.notify.R
@@ -83,12 +85,12 @@ fun AddEditNoteScreen(
         topBar = {
             NotifyAppBar(
                 title = UiText.StringResource(R.string.app_name).asString(),
-                backgroundColor = noteBackgroundAnimatable.value,
+//                backgroundColor = noteBackgroundAnimatable.value,
                 navigationIcon = {
                     IconButton(onClick = { navController.navigateUp() }) {
                         Icon(
                             painter = painterResource(id = R.drawable.ic_back),
-                            tint = NotifyTheme.colors.icon,
+                            tint = NotifyTheme.colors.iconSecondary,
                             contentDescription = ""
                         )
                     }
@@ -98,12 +100,12 @@ fun AddEditNoteScreen(
         floatingActionButton = {
             FloatingActionButton(
                 onClick = { viewModel.onEvent(AddEditNoteEvent.SaveNote) },
-                backgroundColor = NotifyTheme.colors.popUp
+                backgroundColor = NotifyTheme.colors.floated
             ) {
                 Icon(
                     painter = painterResource(id = R.drawable.ic_save),
                     contentDescription = "",
-                    tint = NotifyTheme.colors.icon
+                    tint = NotifyTheme.colors.iconSecondary
                 )
             }
         },
@@ -117,7 +119,12 @@ fun AddEditNoteScreen(
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(dimensionResource(id = R.dimen.padding_medium)),
+                    .padding(
+                        top = dimensionResource(id = R.dimen.padding_medium),
+                        bottom = dimensionResource(id = R.dimen.padding_xxsmall),
+                        start = dimensionResource(id = R.dimen.padding_medium),
+                        end = dimensionResource(id = R.dimen.padding_medium),
+                    ),
                 horizontalArrangement = Arrangement.SpaceBetween,
                 content = {
                     Note.noteColors.forEach { color ->
@@ -136,7 +143,7 @@ fun AddEditNoteScreen(
                 },
                 singleLine = true,
                 keyboardActions = { focusManager.moveFocus(FocusDirection.Next) },
-                textStyle = NotifyTheme.typography.titleMedium
+                textStyle = NotifyTheme.typography.titleLarge
             )
 
             // note content
@@ -149,7 +156,7 @@ fun AddEditNoteScreen(
                     viewModel.onEvent(AddEditNoteEvent.EnteredContent(it))
                 },
                 keyboardActions = { focusManager.clearFocus() },
-                textStyle = MaterialTheme.typography.body1,
+                textStyle = NotifyTheme.typography.bodyMedium,
             )
         }
     }
@@ -167,12 +174,12 @@ private fun ColorPicker(
     Box(
         modifier = Modifier
             .size(50.dp)
-            .shadow(15.dp, CircleShape)
+            .shadow(16.dp, CircleShape)
             .clip(CircleShape)
             .background(color)
             .border(
                 width = 2.dp,
-                color = if (viewModel.noteColor.value == colorInt) Color.DarkGray
+                color = if (viewModel.noteColor.value == colorInt) NotifyTheme.colors.border
                 else Color.Transparent,
                 shape = CircleShape
             )
@@ -180,7 +187,7 @@ private fun ColorPicker(
                 scope.launch {
                     noteBackgroundAnimatable.animateTo(
                         targetValue = Color(colorInt),
-                        animationSpec = tween(durationMillis = 500)
+                        animationSpec = tween(durationMillis = 1000)
                     )
                 }
                 viewModel.onEvent(AddEditNoteEvent.ChangeColor(colorInt))

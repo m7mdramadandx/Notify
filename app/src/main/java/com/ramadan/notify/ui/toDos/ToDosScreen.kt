@@ -11,8 +11,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
@@ -64,18 +62,19 @@ fun ToDosScreen(
         )
 
         AnimatedVisibility(
+            modifier = Modifier.padding(start = 16.dp),
             visible = toDosState.isOrderSectionVisible,
             enter = slideInHorizontally(),
             exit = shrinkHorizontally(),
             content = {
                 OrderSection(
-                    noteOrder = toDosState.noteOrder,
+                    itemOrder = toDosState.itemOrder,
                     onOrderChange = { viewModel.onEvent(ToDosEvent.Order(it)) }
                 )
             }
         )
 
-        LazyColumn {
+        LazyColumn(Modifier.padding(top = 16.dp)) {
             item {
                 NotifyCard(
                     modifier = Modifier

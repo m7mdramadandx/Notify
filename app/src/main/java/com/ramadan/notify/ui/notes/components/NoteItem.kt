@@ -8,8 +8,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.res.integerResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.unit.sp
 import com.ramadan.notify.R
 import com.ramadan.notify.domain.model.Note
 import com.ramadan.notify.ui.theme.NotifyTheme
@@ -24,7 +26,11 @@ fun NoteItem(
     Box(
         modifier = modifier
             .fillMaxWidth()
-            .padding(dimensionResource(id = R.dimen.padding_xxsmall))
+            .padding(
+                start = dimensionResource(id = R.dimen.padding_xxsmall),
+                bottom = dimensionResource(id = R.dimen.padding_medium),
+                end = dimensionResource(id = R.dimen.padding_xxsmall),
+            )
     ) {
         NoteItemLayout(modifier = modifier.matchParentSize(), noteColor = note.color)
         Column(
@@ -41,6 +47,7 @@ fun NoteItem(
                 text = note.title,
                 style = NotifyTheme.typography.titleMedium,
                 color = NotifyTheme.colors.textPrimary,
+                fontSize = integerResource(id = R.integer.text_size_large).sp,
                 overflow = TextOverflow.Ellipsis,
                 maxLines = 1,
             )
@@ -48,8 +55,8 @@ fun NoteItem(
             Text(
                 modifier = Modifier.fillMaxSize(),
                 text = note.content,
-                style = NotifyTheme.typography.bodyMedium,
                 color = NotifyTheme.colors.textPrimary,
+                fontSize = integerResource(id = R.integer.text_size_small).sp,
                 overflow = TextOverflow.Ellipsis
             )
             IconButton(

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="text_size_xxsmall">10</integer>
+    <integer name="text_size_xsmall">12</integer>
+    <integer name="text_size_small">14</integer>
+    <integer name="text_size_medium">16</integer>
+    <integer name="text_size_large">18</integer>
+    <integer name="text_size_xlarge">24</integer>
+    <integer name="text_size_xxlarge">28</integer>
+    <integer name="text_size_xxxlarge">32</integer>
+    <integer name="text_size_xxxxlarge">42</integer>
+
+</resources>

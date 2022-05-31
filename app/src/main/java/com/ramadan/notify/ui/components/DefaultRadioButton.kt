@@ -8,7 +8,10 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.integerResource
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import com.ramadan.notify.R
 import com.ramadan.notify.ui.theme.NotifyTheme
 
 @Composable
@@ -19,6 +22,7 @@ fun DefaultRadioButton(
     onSelect: () -> Unit,
 ) {
     Row(
+        modifier = modifier,
         verticalAlignment = Alignment.CenterVertically
     ) {
         RadioButton(
@@ -29,6 +33,9 @@ fun DefaultRadioButton(
                 unselectedColor = NotifyTheme.colors.iconInteractive
             )
         )
-        Text(text = text, style = NotifyTheme.typography.labelSmall)
+        Text(
+            text = text,
+            fontSize = integerResource(id = R.integer.text_size_xsmall).sp,
+        )
     }
 }

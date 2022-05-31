@@ -11,14 +11,18 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.res.integerResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.ramadan.notify.R
 import com.ramadan.notify.domain.model.ToDo
 import com.ramadan.notify.ui.components.NotifyCard
 import com.ramadan.notify.ui.theme.NotifyTheme
+import com.ramadan.notify.ui.theme.NotifyTypography
 
 
 @Composable
@@ -30,16 +34,15 @@ fun ToDoItem(
 ) {
     NotifyCard(
         modifier = modifier.padding(
-            top = dimensionResource(id = R.dimen.padding_xxsmall),
-            bottom = dimensionResource(id = R.dimen.padding_medium),
             start = dimensionResource(id = R.dimen.padding_medium),
             end = dimensionResource(id = R.dimen.padding_medium),
+            bottom = dimensionResource(id = R.dimen.padding_large),
         ),
     ) {
         Row(
             modifier = Modifier.padding(
                 horizontal = dimensionResource(id = R.dimen.padding_medium),
-                vertical = dimensionResource(id = R.dimen.padding_xxsmall)
+                vertical = dimensionResource(id = R.dimen.padding_medium)
             ),
             verticalAlignment = Alignment.CenterVertically
         ) {
@@ -47,6 +50,7 @@ fun ToDoItem(
                 modifier = Modifier.weight(8f),
                 text = toDo.title,
                 color = NotifyTheme.colors.textPrimary,
+                fontSize = integerResource(id = R.integer.text_size_large).sp,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis
             )

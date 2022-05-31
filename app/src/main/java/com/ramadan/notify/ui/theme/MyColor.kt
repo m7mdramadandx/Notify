@@ -53,12 +53,12 @@ object MyColor {
 
     private val icon = Color(0xFF1D5C63)
     private val iconDark = Color(0xFFFFFFFF)
-    private val iconSecondary = Color(0xFF1A3C40)
-    private val iconSecondaryDark = Color(0xFF1A3C40)
+    private val iconSecondary = Color(0xFFFFFFFF)
+    private val iconSecondaryDark = Color(0xFFFFFFFF)
     private val iconInteractive = Color(0xFF5D5D5D)
     private val iconInteractiveDark = Color(0xFF5D5D5D)
-    private val border = Color(0xFFE3DFE6)
-    private val borderDark = Color(0xFF252525)
+    private val border = Color(0xFF252525)
+    private val borderDark = Color(0xFFE3DFE6)
     private val floated = Color(0xFF1A3C40)
     private val floatedDark = Color(0xFF1A3C40)
 

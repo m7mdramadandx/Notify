@@ -87,12 +87,11 @@ class HomeActivity : ComponentActivity() {
                             topBar = { MyTopBar(navController) },
                             bottomBar = { MyBottomBar(navController) },
                         ) { innerPadding ->
-                            val modifier = Modifier.padding(innerPadding)
                             NavigationGraph(
-                                modifier,
-                                navController,
-                                scaffoldState,
-                                modalBottomSheetState
+                                modifier = Modifier.padding(innerPadding),
+                                navController = navController,
+                                scaffoldState = scaffoldState,
+                                modalBottomSheetState = modalBottomSheetState
                             )
                         }
                     }

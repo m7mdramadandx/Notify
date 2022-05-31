@@ -23,13 +23,4 @@
     <dimen name="card_corner_radius_large">20dp</dimen>
     <dimen name="card_corner_radius_xlarge">24dp</dimen>
 
-    <dimen name="text_size_xsmall">12sp</dimen>
-    <dimen name="text_size_small">14sp</dimen>
-    <dimen name="text_size_medium">16sp</dimen>
-    <dimen name="text_size_large">20sp</dimen>
-    <dimen name="text_size_xlarge">24sp</dimen>
-    <dimen name="text_size_xxlarge">28sp</dimen>
-    <dimen name="text_size_xxxlarge">32sp</dimen>
-    <dimen name="familyTree">64dp</dimen>
-
 </resources>

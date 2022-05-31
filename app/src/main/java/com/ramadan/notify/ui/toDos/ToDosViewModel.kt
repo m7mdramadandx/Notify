@@ -7,9 +7,8 @@ import androidx.lifecycle.viewModelScope
 import com.ramadan.notify.domain.model.InvalidNoteException
 import com.ramadan.notify.domain.model.ToDo
 import com.ramadan.notify.domain.use_case.todo.ToDoUseCases
-import com.ramadan.notify.domain.util.NoteOrder
+import com.ramadan.notify.domain.util.ItemOrder
 import com.ramadan.notify.domain.util.OrderType
-import com.ramadan.notify.domain.util.ToDoOrder
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.launchIn
@@ -32,18 +31,18 @@ class ToDosViewModel @Inject constructor(
     private var getToDosJob: Job? = null
 
     init {
-        getToDos(NoteOrder.Date(OrderType.Descending))
+        getToDos(ItemOrder.Date(OrderType.Descending))
     }
 
     fun onEvent(event: ToDosEvent) {
         when (event) {
             is ToDosEvent.Order -> {
-                if (_toDoState.value.noteOrder::class == event.noteOrder::class &&
-                    _toDoState.value.noteOrder.orderType == event.noteOrder.orderType
+                if (_toDoState.value.itemOrder::class == event.itemOrder::class &&
+                    _toDoState.value.itemOrder.orderType == event.itemOrder.orderType
                 ) {
                     return
                 }
-                getToDos(event.noteOrder)
+                getToDos(event.itemOrder)
             }
             is ToDosEvent.DeleteToDo -> {
                 viewModelScope.launch {
@@ -67,7 +66,7 @@ class ToDosViewModel @Inject constructor(
                 viewModelScope.launch {
                     try {
                         toDoUseCases.markToDo(event.todo.copy(isDone = true))
-                        getToDos(NoteOrder.Date(OrderType.Descending))
+                        getToDos(ItemOrder.Date(OrderType.Descending))
                     } catch (e: InvalidNoteException) {
                     }
                 }
@@ -89,13 +88,13 @@ class ToDosViewModel @Inject constructor(
         }
     }
 
-    private fun getToDos(noteOrder: NoteOrder) {
+    private fun getToDos(itemOrder: ItemOrder) {
         getToDosJob?.cancel()
-        getToDosJob = toDoUseCases.getToDos(noteOrder)
+        getToDosJob = toDoUseCases.getToDos(itemOrder)
             .onEach { toDos ->
                 _toDoState.value = _toDoState.value.copy(
                     ToDos = toDos,
-                    noteOrder = noteOrder
+                    itemOrder = itemOrder
                 )
             }
             .launchIn(viewModelScope)

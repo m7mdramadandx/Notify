@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ramadan.notify.domain.model.Note
 import com.ramadan.notify.domain.use_case.note.NoteUseCases
-import com.ramadan.notify.domain.util.NoteOrder
+import com.ramadan.notify.domain.util.ItemOrder
 import com.ramadan.notify.domain.util.OrderType
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
@@ -29,18 +29,18 @@ class NotesViewModel @Inject constructor(
     private var getNotesJob: Job? = null
 
     init {
-        getNotes(NoteOrder.Date(OrderType.Descending))
+        getNotes(ItemOrder.Date(OrderType.Descending))
     }
 
     fun onEvent(event: NotesEvent) {
         when (event) {
             is NotesEvent.Order -> {
-                if (notesState.value.noteOrder::class == event.noteOrder::class &&
-                    notesState.value.noteOrder.orderType == event.noteOrder.orderType
+                if (notesState.value.itemOrder::class == event.itemOrder::class &&
+                    notesState.value.itemOrder.orderType == event.itemOrder.orderType
                 ) {
                     return
                 }
-                getNotes(event.noteOrder)
+                getNotes(event.itemOrder)
             }
             is NotesEvent.DeleteNote -> {
                 viewModelScope.launch {
@@ -62,13 +62,13 @@ class NotesViewModel @Inject constructor(
         }
     }
 
-    private fun getNotes(noteOrder: NoteOrder) {
+    private fun getNotes(itemOrder: ItemOrder) {
         getNotesJob?.cancel()
-        getNotesJob = noteUseCases.getNotes(noteOrder)
+        getNotesJob = noteUseCases.getNotes(itemOrder)
             .onEach { notes ->
                 _notesState.value = notesState.value.copy(
                     notes = notes,
-                    noteOrder = noteOrder
+                    itemOrder = itemOrder
                 )
             }
             .launchIn(viewModelScope)
