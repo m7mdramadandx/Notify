@@ -56,7 +56,7 @@ fun ToDosScreen(
                 Icon(
                     painter = painterResource(id = R.drawable.ic_sort),
                     contentDescription = "",
-                    tint = NotifyTheme.colors.icon,
+                    tint = NotifyTheme.colors.primary,
                 )
             },
         )

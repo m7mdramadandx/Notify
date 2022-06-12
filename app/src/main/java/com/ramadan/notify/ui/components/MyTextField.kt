@@ -27,7 +27,7 @@ fun MyTextField(
     value: String,
     label: String,
     textStyle: TextStyle = NotifyTheme.typography.bodyMedium,
-    background: Color = NotifyTheme.colors.textFieldBg,
+    background: Color = NotifyTheme.colors.surface,
     keyboardType: KeyboardType = KeyboardType.Text,
     keyboardActions: (KeyboardActionScope) -> Unit = {},
     readOnly: Boolean = false,
@@ -55,7 +55,7 @@ fun MyTextField(
         label = {
             Text(
                 text = _label,
-                color = NotifyTheme.colors.textSecondary,
+                color = NotifyTheme.colors.onSurface,
             )
         },
         singleLine = singleLine,
@@ -63,8 +63,8 @@ fun MyTextField(
             backgroundColor = background,
             focusedIndicatorColor = Color.Transparent,
             unfocusedIndicatorColor = Color.Transparent,
-            disabledTextColor = NotifyTheme.colors.textPrimary,
-            textColor = NotifyTheme.colors.textPrimary,
+            disabledTextColor = NotifyTheme.colors.onPrimary,
+            textColor = NotifyTheme.colors.onPrimary,
         ),
         textStyle = textStyle,
         modifier = modifier

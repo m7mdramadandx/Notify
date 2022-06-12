@@ -20,8 +20,8 @@ import com.ramadan.notify.ui.theme.NotifyTheme
 fun NotifyCard(
     modifier: Modifier = Modifier,
     shape: CornerBasedShape = NotifyShape.shapes.medium,
-    color: Color = NotifyTheme.colors.cardBg,
-    contentColor: Color = NotifyTheme.colors.textPrimary,
+    color: Color = NotifyTheme.colors.surface,
+    contentColor: Color = NotifyTheme.colors.onPrimary,
     border: BorderStroke? = null,
     elevation: Dp = 10.dp,
     content: @Composable () -> Unit,

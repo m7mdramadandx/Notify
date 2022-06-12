@@ -90,7 +90,7 @@ fun AddEditNoteScreen(
                     IconButton(onClick = { navController.navigateUp() }) {
                         Icon(
                             painter = painterResource(id = R.drawable.ic_back),
-                            tint = NotifyTheme.colors.iconSecondary,
+                            tint = NotifyTheme.colors.secondary,
                             contentDescription = ""
                         )
                     }
@@ -100,12 +100,12 @@ fun AddEditNoteScreen(
         floatingActionButton = {
             FloatingActionButton(
                 onClick = { viewModel.onEvent(AddEditNoteEvent.SaveNote) },
-                backgroundColor = NotifyTheme.colors.floated
+                backgroundColor = NotifyTheme.colors.primary
             ) {
                 Icon(
                     painter = painterResource(id = R.drawable.ic_save),
                     contentDescription = "",
-                    tint = NotifyTheme.colors.iconSecondary
+                    tint = NotifyTheme.colors.primary
                 )
             }
         },
@@ -179,7 +179,7 @@ private fun ColorPicker(
             .background(color)
             .border(
                 width = 2.dp,
-                color = if (viewModel.noteColor.value == colorInt) NotifyTheme.colors.border
+                color = if (viewModel.noteColor.value == colorInt) NotifyTheme.colors.outline
                 else Color.Transparent,
                 shape = CircleShape
             )

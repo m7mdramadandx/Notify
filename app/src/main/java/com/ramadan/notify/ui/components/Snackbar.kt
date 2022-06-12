@@ -18,7 +18,7 @@ fun NotifySnackbar(
     actionOnNewLine: Boolean = false,
     shape: Shape = MaterialTheme.shapes.small,
     backgroundColor: Color = NotifyTheme.colors.background,
-    contentColor: Color = NotifyTheme.colors.textSecondary,
+    contentColor: Color = NotifyTheme.colors.onSecondary,
     actionColor: Color = NotifyTheme.colors.primary,
     elevation: Dp = 6.dp,
 ) {

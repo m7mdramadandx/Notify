@@ -26,7 +26,7 @@ fun NotifySurface(
     modifier: Modifier = Modifier,
     shape: Shape = RectangleShape,
     color: Color = NotifyTheme.colors.background,
-    contentColor: Color = NotifyTheme.colors.textPrimary,
+    contentColor: Color = NotifyTheme.colors.onPrimary,
     border: BorderStroke? = null,
     elevation: Dp = 0.dp,
     content: @Composable () -> Unit,

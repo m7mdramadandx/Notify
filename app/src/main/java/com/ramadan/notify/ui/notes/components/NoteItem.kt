@@ -46,7 +46,7 @@ fun NoteItem(
                 modifier = Modifier.padding(end = dimensionResource(id = R.dimen.padding_xxxlarge)),
                 text = note.title,
                 style = NotifyTheme.typography.titleMedium,
-                color = NotifyTheme.colors.textPrimary,
+                color = NotifyTheme.colors.onSurface,
                 fontSize = integerResource(id = R.integer.text_size_large).sp,
                 overflow = TextOverflow.Ellipsis,
                 maxLines = 1,
@@ -55,7 +55,7 @@ fun NoteItem(
             Text(
                 modifier = Modifier.fillMaxSize(),
                 text = note.content,
-                color = NotifyTheme.colors.textPrimary,
+                color = NotifyTheme.colors.onSurface,
                 fontSize = integerResource(id = R.integer.text_size_small).sp,
                 overflow = TextOverflow.Ellipsis
             )
@@ -65,7 +65,7 @@ fun NoteItem(
             ) {
                 Icon(
                     painter = painterResource(R.drawable.ic_delete),
-                    tint = NotifyTheme.colors.iconInteractive,
+                    tint = NotifyTheme.colors.outline,
                     contentDescription = null
                 )
             }

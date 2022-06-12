@@ -28,10 +28,10 @@ fun MyOutlineButton(
     OutlinedButton(
         onClick = onClick,
         colors = ButtonDefaults.outlinedButtonColors(
-            backgroundColor = NotifyTheme.colors.popUp,
+            backgroundColor = NotifyTheme.colors.background,
             contentColor = NotifyTheme.colors.error
         ),
-        border = BorderStroke(1.dp, NotifyTheme.colors.border),
+        border = BorderStroke(1.dp, NotifyTheme.colors.outline),
         enabled = isEnabled,
         elevation = ButtonDefaults.elevation(
             defaultElevation = 0.dp,
@@ -50,7 +50,7 @@ fun MyOutlineButton(
                 fontWeight = FontWeight.Bold,
                 textAlign = TextAlign.Center,
                 fontSize = 14.sp,
-                color = NotifyTheme.colors.textPrimary
+                color = NotifyTheme.colors.onSurface
 
             ),
         )

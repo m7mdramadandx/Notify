@@ -37,10 +37,10 @@ fun NotifyButton(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     shape: Shape = ButtonShape,
     border: BorderStroke? = null,
-    backgroundGradient: List<Color> = NotifyTheme.colors.gradientPrimary,
-    disabledBackgroundGradient: List<Color> = NotifyTheme.colors.gradientInteractive,
-    contentColor: Color = NotifyTheme.colors.textInteractive,
-    disabledContentColor: Color = NotifyTheme.colors.buttonInteractive,
+//    backgroundGradient: List<Color> = NotifyTheme.colors.gradientPrimary,
+//    disabledBackgroundGradient: List<Color> = NotifyTheme.colors.gradientInteractive,
+    contentColor: Color = NotifyTheme.colors.outline,
+    disabledContentColor: Color = NotifyTheme.colors.outline,
     contentPadding: PaddingValues = ButtonDefaults.ContentPadding,
     text: String,
 ) {
@@ -53,11 +53,11 @@ fun NotifyButton(
             .fillMaxWidth()
             .padding(horizontal = 92.dp)
             .clip(shape)
-            .background(
-                Brush.horizontalGradient(
-                    colors = if (enabled) backgroundGradient else disabledBackgroundGradient
-                )
-            )
+//            .background(
+//                Brush.horizontalGradient(
+//                    colors = if (enabled) backgroundGradient else disabledBackgroundGradient
+//                )
+//            )
             .clickable(
                 onClick = onClick,
                 enabled = enabled,
@@ -82,7 +82,7 @@ fun NotifyButton(
                 content = {
                     Text(
                         text = text,
-                        color = NotifyTheme.colors.title)
+                        color = NotifyTheme.colors.onSurface)
 
                 }
             )

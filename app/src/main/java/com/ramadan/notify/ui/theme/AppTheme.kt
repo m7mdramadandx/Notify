@@ -3,6 +3,7 @@ package com.ramadan.notify.ui.theme
 import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.material3.ColorScheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
@@ -31,8 +32,8 @@ fun AppTheme(
             val context = LocalContext.current
             if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
         }
-        darkTheme -> MyColor.DarkColorPalette
-        else -> MyColor.LightColorPalette
+//        darkTheme -> MyColor.DarkColorPalette
+        else -> MyColor.DarkColorPalette
     }
     val view = LocalView.current
     if (!view.isInEditMode) {
@@ -43,18 +44,18 @@ fun AppTheme(
     }
 
 
-    val colors = if (darkTheme) MyColor.DarkColorPalette else MyColor.LightColorPalette
-    val notifyColors =
-        if (darkTheme) MyColor.NotifyDarkColorPalette else MyColor.NotifyLightColorPalette
+//    val colors = if (darkTheme) MyColor.DarkColorPalette else MyColor.LightColorPalette
+//    val notifyColors =
+//        if (darkTheme) MyColor.NotifyDarkColorPalette else MyColor.NotifyLightColorPalette
 
-    SideEffect {
-        systemUiController.setStatusBarColor(color = notifyColors.appBar)
-        systemUiController.setNavigationBarColor(color = colors.onSurface)
-    }
+//    SideEffect {
+//        systemUiController.setStatusBarColor(color = notifyColors.appBar)
+//        systemUiController.setNavigationBarColor(color = colors.onSurface)
+//    }
 
-    ProvideNotifyColors(notifyColors) {
+    ProvideNotifyColors(colorScheme) {
         MaterialTheme(
-            colorScheme = colors,
+            colorScheme = colorScheme,
             typography = NotifyTypography.typography,
             shapes = NotifyShape.shapes,
             content = content,
@@ -64,15 +65,15 @@ fun AppTheme(
 
 @Composable
 private fun ProvideNotifyColors(
-    colors: NotifyColors,
+    colors: ColorScheme,
     content: @Composable () -> Unit,
 ) {
-    val notifyColors = remember {
+    val notifyColors: ColorScheme = remember {
         // Explicitly creating a new object here so we don't mutate the initial [colors]
         // provided, and overwrite the values set in it.
         colors.copy()
     }
-    notifyColors.update(colors)
+//    notifyColors.update(colors)
     CompositionLocalProvider(MyColor.localNotifyColors provides notifyColors, content = content)
 
 }

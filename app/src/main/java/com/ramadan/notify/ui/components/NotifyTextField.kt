@@ -33,12 +33,12 @@ fun NotifyTextField(
         onValueChange = onValueChange,
         label = { Text(text = hint) },
         colors = TextFieldDefaults.outlinedTextFieldColors(
-            unfocusedBorderColor = NotifyTheme.colors.textSecondary,
-            unfocusedLabelColor = NotifyTheme.colors.textSecondary,
-            focusedBorderColor = NotifyTheme.colors.textPrimary,
-            focusedLabelColor = NotifyTheme.colors.textPrimary,
-            backgroundColor = NotifyTheme.colors.textFieldBg,
-            textColor = NotifyTheme.colors.textPrimary
+            unfocusedBorderColor = NotifyTheme.colors.onSecondary,
+            unfocusedLabelColor = NotifyTheme.colors.onSecondary,
+            focusedBorderColor = NotifyTheme.colors.onPrimary,
+            focusedLabelColor = NotifyTheme.colors.onPrimary,
+            backgroundColor = NotifyTheme.colors.surface,
+            textColor = NotifyTheme.colors.onSurface
         ),
         textStyle = TextStyle(fontSize = 18.sp)
     )

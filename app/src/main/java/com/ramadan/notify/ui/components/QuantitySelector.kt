@@ -40,7 +40,7 @@ fun QuantitySelector(
             Text(
                 text = stringResource(R.string.quantity),
                 style = MaterialTheme.typography.subtitle1,
-                color = NotifyTheme.colors.textSecondary,
+                color = NotifyTheme.colors.onSurface,
                 modifier = Modifier
                     .padding(end = dimensionResource(id = R.dimen.padding_xxsmall))
                     .align(Alignment.CenterVertically)
@@ -61,7 +61,7 @@ fun QuantitySelector(
                 text = "$it",
                 style = MaterialTheme.typography.subtitle2,
                 fontSize = 18.sp,
-                color = NotifyTheme.colors.textPrimary,
+                color = NotifyTheme.colors.onSurface,
                 textAlign = TextAlign.Center,
                 modifier = Modifier.widthIn(min = 24.dp)
             )

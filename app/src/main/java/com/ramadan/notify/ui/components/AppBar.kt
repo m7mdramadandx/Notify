@@ -17,7 +17,7 @@ fun NotifyAppBar(
     title: String,
     navigationIcon: @Composable (() -> Unit)? = null,
     actions: @Composable RowScope.() -> Unit = {},
-    backgroundColor: Color = NotifyTheme.colors.appBar,
+    backgroundColor: Color = NotifyTheme.colors.primary,
     contentColor: Color = contentColorFor(backgroundColor),
     elevation: Dp = 8.dp,
 ) {
@@ -25,7 +25,7 @@ fun NotifyAppBar(
         title = {
             Text(
                 text = title,
-                color = NotifyTheme.colors.title
+                color = NotifyTheme.colors.onSurface
             )
         },
         modifier = modifier,

@@ -1,8 +1,6 @@
 package com.ramadan.notify.ui.theme
 
-import android.annotation.SuppressLint
-import androidx.compose.material.darkColors
-import androidx.compose.material.lightColors
+import androidx.compose.material3.ColorScheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.staticCompositionLocalOf
@@ -16,7 +14,7 @@ object MyColor {
     val Violet = Color(0xffcf94da)
     val LightGreen = Color(0xffe7ed9b)
 
-    val localNotifyColors = staticCompositionLocalOf<NotifyColors> {
+    val localNotifyColors = staticCompositionLocalOf<ColorScheme> {
         error("No NotifyColorPalette provided")
     }
 
@@ -134,24 +132,36 @@ object MyColor {
 
 
     // Native MaterialTheme Colors
-    @SuppressLint("ConflictingOnColor")
-    val LightColorPalette = lightColorScheme(
-        primary = appBar,
-//        primaryVariant = button,
-        secondary = button,
-//        secondaryVariant = background,
-        error = error,
-        background = background,
-        surface = appBar,
-        onPrimary = appBar,
+//    val LightColorPalette = lightColorScheme(
+//        primary = appBar,
+//        onPrimary = appBar,
+//        primaryContainer = background,
+//        onPrimaryContainer = textPrimary,
+//        inversePrimary = backgroundDark,
+//        secondary = secondary,
+//        onSecondary = onSecondary,
+//        secondaryContainer = secondaryContainer,
+//        onSecondaryContainer = onSecondaryContainer,
+//        tertiary = tertiary,
+//        onTertiary = onTertiary,
+//        tertiaryContainer = tertiaryContainer,
+//        onTertiaryContainer = onTertiaryContainer,
+//        background = background,
+//        onBackground = onBackground,
+//        surface = surface,
+//        onSurface = onSurface,
+//        surfaceVariant = surfaceVariant,
+//        onSurfaceVariant = onSurfaceVariant,
+//        surfaceTint = surfaceTint,
+//        inverseSurface = inverseSurface,
+//        inverseOnSurface = inverseOnSurface,
+//        error = error,
+//        onError = onError,
+//        errorContainer = errorContainer,
+//        onErrorContainer = onErrorContainer,
+//        outline = outline,
+//    )
 
-        onError = background,
-        onSecondary = backgroundDark,
-        onBackground = backgroundDark,
-        onSurface = backgroundDark,
-    )
-
-    @SuppressLint("ConflictingOnColor")
     val DarkColorPalette = darkColorScheme(
         primary = appBarDark,
 //        primaryVariant = buttonDark,

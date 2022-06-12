@@ -5,6 +5,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsPressedAsState
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Icon
@@ -30,13 +31,13 @@ fun JetsnackGradientTintedIconButton(
     onClick: () -> Unit,
     contentDescription: String?,
     modifier: Modifier = Modifier,
-    colors: List<Color> = NotifyTheme.colors.gradientInteractive,
+    colors: List<Color> = listOf(NotifyTheme.colors.primary, NotifyTheme.colors.secondary),
 ) {
     val interactionSource = remember { MutableInteractionSource() }
 
     // This should use a layer + srcIn but needs investigation
     val border = Modifier.fadeInDiagonalGradientBorder(
-        showBorder = true, colors = NotifyTheme.colors.gradientInteractive,
+        showBorder = true, colors = colors,
         shape = CircleShape
     )
     val pressed by interactionSource.collectIsPressedAsState()
@@ -45,12 +46,12 @@ fun JetsnackGradientTintedIconButton(
     } else {
         Modifier.background(NotifyTheme.colors.background)
     }
-    val blendMode = if (NotifyTheme.colors.isDark) BlendMode.Darken else BlendMode.Plus
+    val blendMode = if (isSystemInDarkTheme()) BlendMode.Darken else BlendMode.Plus
     val modifierColor = if (pressed) {
         Modifier.diagonalGradientTint(
             colors = listOf(
-                NotifyTheme.colors.textSecondary,
-                NotifyTheme.colors.textSecondary
+                NotifyTheme.colors.onSecondary,
+                NotifyTheme.colors.onSecondary
             ),
             blendMode = blendMode
         )

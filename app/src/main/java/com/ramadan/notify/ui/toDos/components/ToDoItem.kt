@@ -49,7 +49,7 @@ fun ToDoItem(
             Text(
                 modifier = Modifier.weight(8f),
                 text = toDo.title,
-                color = NotifyTheme.colors.textPrimary,
+                color = NotifyTheme.colors.onSurface,
                 fontSize = integerResource(id = R.integer.text_size_large).sp,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis
@@ -63,10 +63,10 @@ fun ToDoItem(
                     onMarkClick.invoke(true)
                 },
                 colors = CheckboxDefaults.colors(
-                    checkedColor = NotifyTheme.colors.icon,
-                    uncheckedColor = NotifyTheme.colors.icon,
-                    checkmarkColor = NotifyTheme.colors.icon,
-                    disabledColor = NotifyTheme.colors.border,
+                    checkedColor = NotifyTheme.colors.primary,
+                    uncheckedColor = NotifyTheme.colors.primary,
+                    checkmarkColor = NotifyTheme.colors.primary,
+                    disabledColor = NotifyTheme.colors.outline,
                 )
             )
 

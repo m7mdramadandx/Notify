@@ -77,7 +77,7 @@ class HomeActivity : ComponentActivity() {
                     ModalBottomSheetLayout(
                         sheetState = modalBottomSheetState,
                         sheetShape = NotifyShape.bottomSheetShape,
-                        sheetBackgroundColor = NotifyTheme.colors.popUp,
+                        sheetBackgroundColor = NotifyTheme.colors.background,
                         sheetContent = {
                             ModalBottomSheetContent(modalBottomSheetState, scaffoldState)
                         }
@@ -115,7 +115,7 @@ class HomeActivity : ComponentActivity() {
                 Text(
                     text = UiText.StringResource(R.string.new_todo).asString(),
                     fontSize = 28.sp,
-                    color = NotifyTheme.colors.textPrimary
+                    color = NotifyTheme.colors.onSurface
                 )
 
                 Spacer(Modifier.padding(top = 24.dp))
@@ -245,7 +245,7 @@ class HomeActivity : ComponentActivity() {
                             AnimatableIcon(
                                 imageVector = screen.icon,
                                 scale = if (selectedIndex == index) 1.5f else 1.0f,
-                                color = if (selectedIndex == index) NotifyTheme.colors.icon else NotifyTheme.colors.iconInteractive,
+                                color = if (selectedIndex == index) NotifyTheme.colors.primary else NotifyTheme.colors.outline,
                                 iconSize = 24.dp,
                             ) {
                                 if (selectedIndex != index) {
@@ -276,7 +276,7 @@ class HomeActivity : ComponentActivity() {
         modifier: Modifier = Modifier,
         iconSize: Dp = 24.dp,
         scale: Float = 1f,
-        color: Color = NotifyTheme.colors.icon,
+        color: Color = NotifyTheme.colors.primary,
         onClick: () -> Unit,
     ) {
         // Animation params

@@ -1,5 +1,6 @@
 package com.ramadan.notify.ui.theme
 
+import androidx.compose.material3.ColorScheme
 import androidx.compose.material3.Shapes
 import androidx.compose.material3.Typography
 import androidx.compose.runtime.Composable
@@ -9,7 +10,7 @@ import com.ramadan.notify.ui.theme.NotifyTypography.LocalTypography
 
 object NotifyTheme {
 
-    val colors: NotifyColors
+    val colors: ColorScheme
         @Composable
         @ReadOnlyComposable
         get() = MyColor.localNotifyColors.current

@@ -29,8 +29,8 @@ fun DefaultRadioButton(
             selected = selected,
             onClick = onSelect,
             colors = RadioButtonDefaults.colors(
-                selectedColor = NotifyTheme.colors.icon,
-                unselectedColor = NotifyTheme.colors.iconInteractive
+                selectedColor = NotifyTheme.colors.primary,
+                unselectedColor = NotifyTheme.colors.outline
             )
         )
         Text(

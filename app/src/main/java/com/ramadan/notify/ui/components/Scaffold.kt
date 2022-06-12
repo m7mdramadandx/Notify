@@ -24,10 +24,10 @@ fun NotifyScaffold(
     drawerShape: Shape = NotifyTheme.shapes.large,
     drawerElevation: Dp = DrawerDefaults.Elevation,
     drawerBackgroundColor: Color = NotifyTheme.colors.background,
-    drawerContentColor: Color = NotifyTheme.colors.textSecondary,
-    drawerScrimColor: Color = NotifyTheme.colors.border,
+    drawerContentColor: Color = NotifyTheme.colors.onSecondary,
+    drawerScrimColor: Color = NotifyTheme.colors.outline,
     backgroundColor: Color = NotifyTheme.colors.background,
-    contentColor: Color = NotifyTheme.colors.textSecondary,
+    contentColor: Color = NotifyTheme.colors.onSecondary,
     content: @Composable (PaddingValues) -> Unit,
 ) {
     Scaffold(

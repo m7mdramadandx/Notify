@@ -17,7 +17,7 @@ import com.ramadan.notify.ui.theme.NotifyTheme
 @Composable
 fun NotifyDivider(
     modifier: Modifier = Modifier,
-    color: Color = NotifyTheme.colors.border.copy(alpha = DividerAlpha),
+    color: Color = NotifyTheme.colors.outline.copy(alpha = DividerAlpha),
     thickness: Dp = 1.dp,
     startIndent: Dp = 0.dp,
 ) {

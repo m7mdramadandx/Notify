@@ -24,8 +24,8 @@ fun MyButton(
     modifier: Modifier = Modifier,
     buttonText: String,
     padding: Dp = 0.dp,
-    textColor: Color = NotifyTheme.colors.title,
-    buttonBackground: Color = NotifyTheme.colors.button,
+    textColor: Color = NotifyTheme.colors.onSurface,
+    buttonBackground: Color = NotifyTheme.colors.primary,
     isEnabled: Boolean = true,
     onClick: () -> (Unit),
 ) {
@@ -42,7 +42,7 @@ fun MyButton(
             .fillMaxWidth()
             .height(42.dp),
         colors = ButtonDefaults.buttonColors(
-            disabledBackgroundColor = NotifyTheme.colors.buttonInteractive,
+            disabledBackgroundColor = NotifyTheme.colors.outline,
             backgroundColor = buttonBackground
         ),
         shape = NotifyShape.shapes.large,

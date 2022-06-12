@@ -16,7 +16,7 @@ android {
 
     signingConfigs {
         getByName("debug") {
-            storeFile = file("D:\\android projects\\Notify\\app\\keyStore.jks")
+            storeFile = file("keyStore.jks")
             storePassword = "notify_password"
             keyAlias = "key0"
             keyPassword = "notify_password"
