@@ -5,6 +5,7 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.material.Text
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -20,8 +21,8 @@ import com.ramadan.notify.ui.theme.NotifyTheme
 fun NotifyCard(
     modifier: Modifier = Modifier,
     shape: CornerBasedShape = NotifyShape.shapes.medium,
-    color: Color = NotifyTheme.colors.surface,
-    contentColor: Color = NotifyTheme.colors.onPrimary,
+    color: Color = MaterialTheme.colorScheme.surface,
+    contentColor: Color = MaterialTheme.colorScheme.onPrimary,
     border: BorderStroke? = null,
     elevation: Dp = 10.dp,
     content: @Composable () -> Unit,
@@ -29,8 +30,8 @@ fun NotifyCard(
     NotifySurface(
         modifier = modifier,
         shape = shape,
-        color = color,
-        contentColor = contentColor,
+//        color = color,
+//        contentColor = contentColor,
         elevation = elevation,
         border = border,
         content = content

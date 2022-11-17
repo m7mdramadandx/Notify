@@ -1,6 +1,7 @@
 package com.ramadan.notify.ui.components
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -9,6 +10,7 @@ import com.ramadan.notify.domain.util.ItemOrder
 import com.ramadan.notify.domain.util.OrderType
 import com.ramadan.notify.utils.UiText
 
+@ExperimentalMaterial3Api
 @Composable
 fun OrderSection(
     modifier: Modifier = Modifier,

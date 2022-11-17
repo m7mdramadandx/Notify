@@ -8,8 +8,7 @@ import androidx.compose.foundation.text.KeyboardActionScope
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.Text
-import androidx.compose.material.TextField
-import androidx.compose.material.TextFieldDefaults
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.onFocusChanged
@@ -27,7 +26,7 @@ fun MyTextField(
     value: String,
     label: String,
     textStyle: TextStyle = NotifyTheme.typography.bodyMedium,
-    background: Color = NotifyTheme.colors.surface,
+    background: Color = MaterialTheme.colorScheme.surface,
     keyboardType: KeyboardType = KeyboardType.Text,
     keyboardActions: (KeyboardActionScope) -> Unit = {},
     readOnly: Boolean = false,
@@ -41,7 +40,7 @@ fun MyTextField(
     _label = label
     if (value.isNotEmpty()) _label = ""
 
-    TextField(
+    androidx.compose.material3.TextField(
         enabled = isEnable,
         value = value,
         keyboardOptions = KeyboardOptions.Default.copy(keyboardType = keyboardType),
@@ -55,18 +54,18 @@ fun MyTextField(
         label = {
             Text(
                 text = _label,
-                color = NotifyTheme.colors.onSurface,
+//                color = NotifyTheme.colors.onSurface,
             )
         },
         singleLine = singleLine,
-        colors = TextFieldDefaults.textFieldColors(
-            backgroundColor = background,
-            focusedIndicatorColor = Color.Transparent,
-            unfocusedIndicatorColor = Color.Transparent,
-            disabledTextColor = NotifyTheme.colors.onPrimary,
-            textColor = NotifyTheme.colors.onPrimary,
-        ),
-        textStyle = textStyle,
+//        colors = androidx.compose.material3.TextFieldDefaults.textFieldColors(
+//            containerColor = background,
+//            focusedIndicatorColor = Color.Transparent,
+//            unfocusedIndicatorColor = Color.Transparent,
+//            disabledTextColor = NotifyTheme.colors.onPrimary,
+//            textColor = NotifyTheme.colors.onPrimary,
+//        ),
+//        textStyle = textStyle,
         modifier = modifier
             .fillMaxWidth()
             .clickable { onClick() }

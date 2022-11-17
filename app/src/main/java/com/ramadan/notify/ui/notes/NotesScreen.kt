@@ -8,6 +8,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.*
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
@@ -22,15 +23,15 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.ramadan.notify.R
 import com.ramadan.notify.domain.model.Note
+import com.ramadan.notify.ui.components.OrderSection
 import com.ramadan.notify.ui.notes.components.NoteItem
 import com.ramadan.notify.ui.notes.components.NoteItemLayout
-import com.ramadan.notify.ui.components.OrderSection
-import com.ramadan.notify.utils.Screen
+import com.ramadan.notify.utils.NotifyScreen
 import com.ramadan.notify.utils.StaggeredVerticalGrid
-import com.ramadan.notify.ui.theme.NotifyTheme
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
+@ExperimentalMaterial3Api
 @ExperimentalAnimationApi
 @Composable
 fun NotesScreen(
@@ -49,7 +50,6 @@ fun NotesScreen(
                 Icon(
                     painter = painterResource(id = R.drawable.ic_sort),
                     contentDescription = "",
-                    tint = NotifyTheme.colors.primary,
                 )
             },
         )
@@ -77,7 +77,7 @@ fun NotesScreen(
                             end = dimensionResource(id = R.dimen.padding_xxsmall),
                         )
                         .fillMaxWidth()
-                        .clickable { navController.navigate(Screen.AddEditNote.route) }) {
+                        .clickable { navController.navigate(NotifyScreen.AddEditNote.route) }) {
 
                         NoteItemLayout(
                             modifier = Modifier.matchParentSize(),
@@ -99,7 +99,7 @@ fun NotesScreen(
                             modifier = Modifier
                                 .clickable {
                                     navController.navigate(
-                                        Screen.AddEditNote.route + "?noteId=${note.id}&noteColor=${note.color}"
+                                        NotifyScreen.AddEditNote.route + "?noteId=${note.id}&noteColor=${note.color}"
                                     )
                                 },
                             note = note,

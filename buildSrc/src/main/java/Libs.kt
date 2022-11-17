@@ -27,7 +27,13 @@ object Libs {
 
     // dagger hilt
     const val hiltAndroid = "com.google.dagger:hilt-android:${Versions.HILT}"
-    const val hiltAndroidCompiler = "com.google.dagger:hilt-compiler:${Versions.HILT}"
+    const val kaptHiltCompiler = "com.google.dagger:hilt-compiler:${Versions.HILT}"
+    const val kaptHiltAndroidCompiler = "com.google.dagger:hilt-android-compiler:${Versions.HILT}"
+    const val kaptAndroidxHiltCompiler = "androidx.hilt:hilt-compiler:1.0.0"
+    const val DAGGER = "com.google.dagger:dagger:2.29.1"
+
+    //anno
+    const val kaptDAGGER = "com.google.dagger:dagger-compiler:2.29.1"
 
     // google mobile services
     const val googleMap = "com.google.android.gms:play-services-maps:18.0.2"
@@ -134,5 +140,9 @@ object Libs {
     const val exoplayerUi = "com.google.android.exoplayer:exoplayer-ui:2.17.1"
     const val exoplayerCore = "com.google.android.exoplayer:exoplayer-core:2.17.1"
     const val exoplayerCommon = "com.google.android.exoplayer:exoplayer-common:2.17.1"
+
+    // work manager
+    const val work = "androidx.work:work-runtime-ktx:2.7.1"
+
 
 }

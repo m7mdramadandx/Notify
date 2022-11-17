@@ -13,13 +13,16 @@ import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
+import androidx.compose.material3.Divider
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
-import androidx.compose.ui.graphics.colorspace.ColorSpaces
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
@@ -41,20 +44,22 @@ import com.ramadan.notify.R
 import com.ramadan.notify.ui.add_edit_note.AddEditNoteScreen
 import com.ramadan.notify.ui.components.*
 import com.ramadan.notify.ui.notes.NotesScreen
+import com.ramadan.notify.ui.test.TestScreen
+import com.ramadan.notify.ui.theme.AppTheme
+import com.ramadan.notify.ui.theme.NotifyShape
+import com.ramadan.notify.ui.theme.NotifyTheme
 import com.ramadan.notify.ui.toDos.ToDosEvent
 import com.ramadan.notify.ui.toDos.ToDosScreen
 import com.ramadan.notify.ui.toDos.ToDosViewModel
 import com.ramadan.notify.utils.Constant
 import com.ramadan.notify.utils.InAppUpdate
-import com.ramadan.notify.utils.Screen
+import com.ramadan.notify.utils.NotifyScreen
 import com.ramadan.notify.utils.UiText
-import com.ramadan.notify.ui.theme.AppTheme
-import com.ramadan.notify.ui.theme.NotifyShape
-import com.ramadan.notify.ui.theme.NotifyTheme
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 @ExperimentalMaterialApi
+@ExperimentalMaterial3Api
 @ExperimentalAnimationApi
 @AndroidEntryPoint
 class HomeActivity : ComponentActivity() {
@@ -69,8 +74,7 @@ class HomeActivity : ComponentActivity() {
             val navController = rememberNavController()
             val scope = rememberCoroutineScope()
             val scaffoldState = rememberScaffoldState()
-            val modalBottomSheetState =
-                rememberModalBottomSheetState(ModalBottomSheetValue.Hidden)
+            val modalBottomSheetState = rememberModalBottomSheetState(ModalBottomSheetValue.Hidden)
 
             AppTheme {
                 ProvideWindowInsets(windowInsetsAnimationsEnabled = true) {
@@ -148,31 +152,27 @@ class HomeActivity : ComponentActivity() {
         scaffoldState: ScaffoldState,
         modalBottomSheetState: ModalBottomSheetState,
     ) {
-        NavHost(navController, startDestination = Screen.Note.route) {
-            composable(Screen.Note.route) {
+        NavHost(navController, startDestination = NotifyScreen.Note.route) {
+
+            composable(NotifyScreen.Note.route) {
                 NotesScreen(
                     modifier = modifier,
                     navController = navController,
                     scaffoldState = scaffoldState
                 )
             }
+
             composable(
-                route = Screen.AddEditNote.route + "?noteId={noteId}&noteColor={noteColor}",
+                route = NotifyScreen.AddEditNote.route + "?noteId={noteId}&noteColor={noteColor}",
                 arguments = listOf(
-                    navArgument(
-                        name = "noteId",
-                        builder = {
-                            type = NavType.IntType
-                            defaultValue = -1
-                        }
-                    ),
-                    navArgument(
-                        name = "noteColor",
-                        builder = {
-                            type = NavType.IntType
-                            defaultValue = -1
-                        }
-                    ),
+                    navArgument("noteId") {
+                        type = NavType.IntType
+                        defaultValue = -1
+                    },
+                    navArgument("noteColor") {
+                        type = NavType.IntType
+                        defaultValue = -1
+                    },
                 ),
             ) {
                 val color = it.arguments?.getInt("noteColor") ?: -1
@@ -182,9 +182,16 @@ class HomeActivity : ComponentActivity() {
                     noteColor = color
                 )
             }
-            composable(Screen.ToDo.route) {
+
+            composable(NotifyScreen.ToDo.route) {
                 ToDosScreen(
                     modifier = modifier,
+                    navController = navController,
+                    modalBottomSheetState = modalBottomSheetState
+                )
+            }
+            composable(NotifyScreen.Test.route) {
+                TestScreen(
                     navController = navController,
                     modalBottomSheetState = modalBottomSheetState
                 )
@@ -198,7 +205,7 @@ class HomeActivity : ComponentActivity() {
         val navBackStackEntry by navController.currentBackStackEntryAsState()
         val currentRoute = navBackStackEntry?.destination?.route
 
-        if (currentRoute?.contains(Screen.AddEditNote.route) == false) {
+        if (currentRoute?.contains(NotifyScreen.AddEditNote.route) == false) {
             NotifyAppBar(
                 title = stringResource(R.string.app_name),
             )
@@ -208,12 +215,12 @@ class HomeActivity : ComponentActivity() {
 
     @Composable
     fun MyBottomBar(navController: NavController) {
-        val items = listOf(Screen.Note, Screen.ToDo)
+        val items = listOf(NotifyScreen.Note, NotifyScreen.ToDo, NotifyScreen.Test)
         val navBackStackEntry by navController.currentBackStackEntryAsState()
         val currentRoute = navBackStackEntry?.destination?.route
 
         AnimatedVisibility(
-            visible = (currentRoute == Screen.Note.route) || (currentRoute == Screen.ToDo.route),
+            visible = (currentRoute == NotifyScreen.Note.route) || (currentRoute == NotifyScreen.ToDo.route),
             enter = expandVertically(),
             exit = shrinkVertically(),
         ) {
@@ -276,7 +283,7 @@ class HomeActivity : ComponentActivity() {
         modifier: Modifier = Modifier,
         iconSize: Dp = 24.dp,
         scale: Float = 1f,
-        color: Color = NotifyTheme.colors.primary,
+        color: Color = androidx.compose.material3.MaterialTheme.colorScheme.primary,
         onClick: () -> Unit,
     ) {
         // Animation params

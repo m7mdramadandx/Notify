@@ -42,30 +42,27 @@ fun NoteItem(
                     top = dimensionResource(id = R.dimen.padding_xsmall)
                 ),
         ) {
-            Text(
+            androidx.compose.material3.Text(
                 modifier = Modifier.padding(end = dimensionResource(id = R.dimen.padding_xxxlarge)),
                 text = note.title,
                 style = NotifyTheme.typography.titleMedium,
-                color = NotifyTheme.colors.onSurface,
                 fontSize = integerResource(id = R.integer.text_size_large).sp,
                 overflow = TextOverflow.Ellipsis,
                 maxLines = 1,
             )
             Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_xxsmall)))
-            Text(
+            androidx.compose.material3.Text(
                 modifier = Modifier.fillMaxSize(),
                 text = note.content,
-                color = NotifyTheme.colors.onSurface,
                 fontSize = integerResource(id = R.integer.text_size_small).sp,
                 overflow = TextOverflow.Ellipsis
             )
-            IconButton(
+            androidx.compose.material3.IconButton(
                 onClick = onDeleteClick,
                 modifier = modifier.align(Alignment.End)
             ) {
                 Icon(
                     painter = painterResource(R.drawable.ic_delete),
-                    tint = NotifyTheme.colors.outline,
                     contentDescription = null
                 )
             }

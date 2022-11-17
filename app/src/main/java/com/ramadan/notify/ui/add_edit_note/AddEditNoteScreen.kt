@@ -90,7 +90,6 @@ fun AddEditNoteScreen(
                     IconButton(onClick = { navController.navigateUp() }) {
                         Icon(
                             painter = painterResource(id = R.drawable.ic_back),
-                            tint = NotifyTheme.colors.secondary,
                             contentDescription = ""
                         )
                     }
@@ -98,14 +97,12 @@ fun AddEditNoteScreen(
             )
         },
         floatingActionButton = {
-            FloatingActionButton(
+            androidx.compose.material3.FloatingActionButton(
                 onClick = { viewModel.onEvent(AddEditNoteEvent.SaveNote) },
-                backgroundColor = NotifyTheme.colors.primary
             ) {
                 Icon(
                     painter = painterResource(id = R.drawable.ic_save),
                     contentDescription = "",
-                    tint = NotifyTheme.colors.primary
                 )
             }
         },

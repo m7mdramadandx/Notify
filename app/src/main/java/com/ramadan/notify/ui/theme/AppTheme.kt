@@ -43,16 +43,6 @@ fun AppTheme(
         }
     }
 
-
-//    val colors = if (darkTheme) MyColor.DarkColorPalette else MyColor.LightColorPalette
-//    val notifyColors =
-//        if (darkTheme) MyColor.NotifyDarkColorPalette else MyColor.NotifyLightColorPalette
-
-//    SideEffect {
-//        systemUiController.setStatusBarColor(color = notifyColors.appBar)
-//        systemUiController.setNavigationBarColor(color = colors.onSurface)
-//    }
-
     ProvideNotifyColors(colorScheme) {
         MaterialTheme(
             colorScheme = colorScheme,

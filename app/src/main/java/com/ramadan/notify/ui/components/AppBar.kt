@@ -1,9 +1,9 @@
 package com.ramadan.notify.ui.components
 
 import androidx.compose.foundation.layout.RowScope
-import androidx.compose.material.Text
-import androidx.compose.material.TopAppBar
 import androidx.compose.material.contentColorFor
+import androidx.compose.material3.LargeTopAppBar
+import androidx.compose.material3.MediumTopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -21,19 +21,16 @@ fun NotifyAppBar(
     contentColor: Color = contentColorFor(backgroundColor),
     elevation: Dp = 8.dp,
 ) {
-    TopAppBar(
+    MediumTopAppBar(
         title = {
-            Text(
-                text = title,
-                color = NotifyTheme.colors.onSurface
-            )
+            androidx.compose.material3.Text(text = title)
         },
         modifier = modifier,
-        navigationIcon = navigationIcon,
+        navigationIcon = navigationIcon ?: {},
         actions = actions,
-        backgroundColor = backgroundColor,
-        contentColor = contentColor,
-        elevation = elevation
+//        backgroundColor = backgroundColor,
+//        contentColor = contentColor,
+//        elevation = elevation
     )
 
 }

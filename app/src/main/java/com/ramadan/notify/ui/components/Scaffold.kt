@@ -3,6 +3,8 @@ package com.ramadan.notify.ui.components
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.material.*
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.contentColorFor
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -23,11 +25,11 @@ fun NotifyScaffold(
     drawerContent: @Composable (ColumnScope.() -> Unit)? = null,
     drawerShape: Shape = NotifyTheme.shapes.large,
     drawerElevation: Dp = DrawerDefaults.Elevation,
-    drawerBackgroundColor: Color = NotifyTheme.colors.background,
-    drawerContentColor: Color = NotifyTheme.colors.onSecondary,
-    drawerScrimColor: Color = NotifyTheme.colors.outline,
-    backgroundColor: Color = NotifyTheme.colors.background,
-    contentColor: Color = NotifyTheme.colors.onSecondary,
+    drawerBackgroundColor: Color = MaterialTheme.colorScheme.surface,
+    drawerContentColor: Color = MaterialTheme.colorScheme.contentColorFor(drawerBackgroundColor),
+    drawerScrimColor: Color = DrawerDefaults.scrimColor,
+    backgroundColor: Color = MaterialTheme.colorScheme.background,
+    contentColor: Color = MaterialTheme.colorScheme.contentColorFor(backgroundColor),
     content: @Composable (PaddingValues) -> Unit,
 ) {
     Scaffold(

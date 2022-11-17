@@ -1,16 +1,13 @@
 package com.ramadan.notify.ui.components
 
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.material.OutlinedTextField
-import androidx.compose.material.Text
-import androidx.compose.material.TextFieldDefaults
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.sp
 import com.ramadan.notify.ui.theme.NotifyShape
-import com.ramadan.notify.ui.theme.NotifyTheme
 
 @Composable
 fun NotifyTextField(
@@ -22,7 +19,7 @@ fun NotifyTextField(
     textStyle: TextStyle = TextStyle(),
 //    onFocusChange: (FocusState) -> Unit,
 ) {
-    OutlinedTextField(
+    androidx.compose.material3.OutlinedTextField(
         modifier = modifier
             .fillMaxWidth()
             .onFocusChanged {
@@ -32,13 +29,13 @@ fun NotifyTextField(
         shape = NotifyShape.shapes.large,
         onValueChange = onValueChange,
         label = { Text(text = hint) },
-        colors = TextFieldDefaults.outlinedTextFieldColors(
-            unfocusedBorderColor = NotifyTheme.colors.onSecondary,
-            unfocusedLabelColor = NotifyTheme.colors.onSecondary,
-            focusedBorderColor = NotifyTheme.colors.onPrimary,
-            focusedLabelColor = NotifyTheme.colors.onPrimary,
-            backgroundColor = NotifyTheme.colors.surface,
-            textColor = NotifyTheme.colors.onSurface
+        colors = androidx.compose.material3.TextFieldDefaults.outlinedTextFieldColors(
+//            unfocusedBorderColor = NotifyTheme.colors.onSecondary,
+//            unfocusedLabelColor = NotifyTheme.colors.onSecondary,
+//            focusedBorderColor = NotifyTheme.colors.onPrimary,
+//            focusedLabelColor = NotifyTheme.colors.onPrimary,
+//            backgroundColor = NotifyTheme.colors.surface,
+//            textColor = NotifyTheme.colors.onSurface
         ),
         textStyle = TextStyle(fontSize = 18.sp)
     )

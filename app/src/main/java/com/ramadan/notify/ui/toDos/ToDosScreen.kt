@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.*
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
@@ -28,11 +29,11 @@ import com.ramadan.notify.ui.components.NotifyCard
 import com.ramadan.notify.ui.components.OrderSection
 import com.ramadan.notify.ui.toDos.components.ToDoItem
 import com.ramadan.notify.utils.UiText
-import com.ramadan.notify.ui.theme.NotifyTheme
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 
+@ExperimentalMaterial3Api
 @ExperimentalMaterialApi
 @ExperimentalAnimationApi
 @Composable
@@ -56,7 +57,6 @@ fun ToDosScreen(
                 Icon(
                     painter = painterResource(id = R.drawable.ic_sort),
                     contentDescription = "",
-                    tint = NotifyTheme.colors.primary,
                 )
             },
         )
@@ -93,7 +93,7 @@ fun ToDosScreen(
                             }
                         },
                 ) {
-                    Icon(
+                    androidx.compose.material3.Icon(
                         modifier = Modifier
                             .fillMaxSize()
                             .padding(dimensionResource(id = R.dimen.padding_medium))

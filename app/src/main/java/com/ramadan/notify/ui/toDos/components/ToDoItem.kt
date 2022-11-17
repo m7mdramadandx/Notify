@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Delete
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -25,6 +26,7 @@ import com.ramadan.notify.ui.theme.NotifyTheme
 import com.ramadan.notify.ui.theme.NotifyTypography
 
 
+@ExperimentalMaterial3Api
 @Composable
 fun ToDoItem(
     modifier: Modifier = Modifier,
@@ -46,15 +48,14 @@ fun ToDoItem(
             ),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Text(
+            androidx.compose.material3.Text(
                 modifier = Modifier.weight(8f),
                 text = toDo.title,
-                color = NotifyTheme.colors.onSurface,
                 fontSize = integerResource(id = R.integer.text_size_large).sp,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis
             )
-            Checkbox(
+            androidx.compose.material3.Checkbox(
                 modifier = Modifier.weight(1f),
                 checked = toDo.isDone,
                 enabled = !toDo.isDone,
@@ -62,12 +63,12 @@ fun ToDoItem(
                     toDo.isDone = true
                     onMarkClick.invoke(true)
                 },
-                colors = CheckboxDefaults.colors(
-                    checkedColor = NotifyTheme.colors.primary,
-                    uncheckedColor = NotifyTheme.colors.primary,
-                    checkmarkColor = NotifyTheme.colors.primary,
-                    disabledColor = NotifyTheme.colors.outline,
-                )
+//                colors = CheckboxDefaults.colors(
+//                    checkedColor = NotifyTheme.colors.primary,
+//                    uncheckedColor = NotifyTheme.colors.primary,
+//                    checkmarkColor = NotifyTheme.colors.primary,
+//                    disabledColor = NotifyTheme.colors.outline,
+//                )
             )
 
             Icon(
@@ -75,7 +76,6 @@ fun ToDoItem(
                     .weight(1f)
                     .clickable { onDeleteClick.invoke() },
                 painter = painterResource(id = R.drawable.ic_delete),
-                tint = NotifyTheme.colors.error,
                 contentDescription = "",
             )
         }

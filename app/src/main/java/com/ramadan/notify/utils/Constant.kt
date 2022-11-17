@@ -15,10 +15,13 @@ object Constant {
     const val TIMER_ACTION = "TimerAction"
 
 
-    const val DEBUG_TAG = "NOTIFY_0101 "
+    const val DEBUG_TAG = "NOTIFY_LOGCAT"
 
     val dirPath = Environment.getExternalStoragePublicDirectory(
         Environment.DIRECTORY_PICTURES
     ).path + "/islami"
 
+    const val OUTPUT_PATH = "blur_filter_outputs"
+    const val KEY_IMAGE_URI = "KEY"
+    const val TAG_OUTPUT = "OUTPUT"
 }

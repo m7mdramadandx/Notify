@@ -2,11 +2,16 @@
 
 package com.ramadan.notify.utils
 
+import android.content.ContentValues
 import android.content.Context
 import android.graphics.Color
 import android.net.ConnectivityManager
+import android.net.Uri
+import android.os.Build
 import android.os.Environment
 import android.preference.PreferenceManager.getDefaultSharedPreferences
+import android.provider.MediaStore
+import java.net.URL
 
 
 fun getRecordLength(milliseconds: Long): String {
@@ -49,6 +54,7 @@ fun Context.isNetworkConnected(): Boolean {
     val cm = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager?
     return cm!!.activeNetworkInfo != null && cm.activeNetworkInfo!!.isConnected
 }
+
 
 
 

@@ -3,9 +3,6 @@ package com.ramadan.notify.ui.components
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Button
-import androidx.compose.material.ButtonDefaults
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -29,10 +26,10 @@ fun MyButton(
     isEnabled: Boolean = true,
     onClick: () -> (Unit),
 ) {
-    Button(
+    androidx.compose.material3.Button(
         onClick = onClick,
         enabled = isEnabled,
-        elevation = ButtonDefaults.elevation(
+        elevation = androidx.compose.material3.ButtonDefaults.buttonElevation(
             defaultElevation = 0.dp,
             disabledElevation = 0.dp,
             pressedElevation = 0.dp
@@ -41,16 +38,16 @@ fun MyButton(
             .padding(horizontal = padding)
             .fillMaxWidth()
             .height(42.dp),
-        colors = ButtonDefaults.buttonColors(
-            disabledBackgroundColor = NotifyTheme.colors.outline,
-            backgroundColor = buttonBackground
+        colors = androidx.compose.material3.ButtonDefaults.buttonColors(
+            disabledContentColor = NotifyTheme.colors.outline,
+            containerColor = buttonBackground
         ),
         shape = NotifyShape.shapes.large,
     ) {
-        Text(
+        androidx.compose.material3.Text(
             text = buttonText,
             style = TextStyle(
-                color = textColor,
+//                color = textColor,
                 fontWeight = FontWeight.Bold,
                 textAlign = TextAlign.Center,
                 fontSize = 16.sp
